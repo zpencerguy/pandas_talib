@@ -274,8 +274,8 @@ def RSI(df, n):
     UpI = [0]
     DoI = [0]
     while i + 1 <= len(df) - 1:  # df.index[-1]
-        UpMove = df.get_value(i + 1, 'High') - df.get_value(i, 'High')
-        DoMove = df.get_value(i, 'Low') - df.get_value(i + 1, 'Low')
+        UpMove = df['High'].iloc[(i + 1)] - df['High'].iloc[i]
+        DoMove = df['Low'].iloc[i] - df['Low'].iloc[(i + 1)]
         if UpMove > DoMove and UpMove > 0:
             UpD = UpMove
         else:
